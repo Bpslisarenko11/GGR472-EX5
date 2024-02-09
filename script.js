@@ -42,4 +42,41 @@ map.on('load',() => {
             'circle-colour': '#B4222'
         }
     });
+
+    map.addSource("buildings-data", {
+        type: "geojson",
+        data: "https://bpslisarenko11.github.io/GGR472-EX5/buildings.geojson",
+    
+    });
+
+    map.addLayer({
+        "id": "buildings-point",
+        "type": "circle",
+        "source": "buildings-data",
+        "paint": {
+            "circle-radius": 5,
+            "circle-colour": "#007cbf",
+
+        }
+    });
+
+    map.addSource("toronto-census-tracts", {
+        "type": "vector",
+        "url": "https://studio.mapbox.com/tilesets/spblisarenko12.bi0wzc60"
+    });
+
+    map.addLayer({
+        "id": "census-tract",
+        "type": "fill",
+        "source": "toronto-census-tracts",
+        "paint": {
+            "fill-color": "#888888",
+            "fill-opacity": 0.4,
+            "fill-outline-colour": "black",
+
+        },
+        "source-layer": "torontoct-43fpbe"
+
+    })
+        "uoft-buildings"
 });
